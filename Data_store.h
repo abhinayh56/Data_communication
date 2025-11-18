@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include <stdint.h>
+#include <cstdint>
 #include <vector>
 #include <map>
 
@@ -30,5 +31,5 @@ private:
 
     std::vector<uint8_t> m_data_buffer;
 
-    std::map<std::string, std::map<std::string, uint64_t>> m_data_element_register;
+    std::map<std::string, std::map<std::string, uintptr_t>> m_data_element_register;
 };
