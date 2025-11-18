@@ -1,70 +1,37 @@
-#include <stdint.h>
 #include <iostream>
-#include "Class1.h"
-#include "Class2.h"
-#include "Data_store.h"
+#include <map>
+#include <string>
+#include <cstdint>
 
 int main()
 {
-    // Class1 obj_1_1;
-    // std::cout << "&obj_1_1.ds_1: " << &obj_1_1.ds_1 << std::endl;
-    // std::cout << "&obj_1_1.ds_2: " << &obj_1_1.ds_2 << std::endl;
-    // std::cout << "&obj_1_1.ds_3: " << &obj_1_1.ds_3 << std::endl;
+    std::map<std::string, std::map<std::string, uintptr_t>> m_data_element_register;
 
-    // Class1 obj_1_2;
-    // std::cout << "&obj_1_2.ds_1: " << &obj_1_2.ds_1 << std::endl;
-    // std::cout << "&obj_1_2.ds_2: " << &obj_1_2.ds_2 << std::endl;
-    // std::cout << "&obj_1_2.ds_3: " << &obj_1_2.ds_3 << std::endl;
+    int a = 10;
+    double b = 3.14;
 
-    // Class1 obj_1_3;
-    // std::cout << "&obj_1_3.ds_1: " << &obj_1_3.ds_1 << std::endl;
-    // std::cout << "&obj_1_3.ds_2: " << &obj_1_3.ds_2 << std::endl;
-    // std::cout << "&obj_1_3.ds_3: " << &obj_1_3.ds_3 << std::endl;
+    m_data_element_register["Integers"]["a"] = reinterpret_cast<uintptr_t>(&a);
+    m_data_element_register["Doubles"]["b"] = reinterpret_cast<uintptr_t>(&b);
 
-    // Class2 obj_2_1;
-    // std::cout << "&obj_2_1.ds_1: " << &obj_2_1.ds_1 << std::endl;
-    // std::cout << "&obj_2_1.ds_2: " << &obj_2_1.ds_2 << std::endl;
-    // std::cout << "&obj_2_1.ds_3: " << &obj_2_1.ds_3 << std::endl;
+    uintptr_t raw_ptr_a = m_data_element_register["Integers"]["a"];
+    int *ptr_a = reinterpret_cast<int *>(raw_ptr_a);
 
-    // Class2 obj_2_2;
-    // std::cout << "&obj_2_2.ds_1: " << &obj_2_2.ds_1 << std::endl;
-    // std::cout << "&obj_2_2.ds_2: " << &obj_2_2.ds_2 << std::endl;
-    // std::cout << "&obj_2_2.ds_3: " << &obj_2_2.ds_3 << std::endl;
+    uintptr_t raw_ptr_b = m_data_element_register["Doubles"]["b"];
+    double *ptr_b = reinterpret_cast<double *>(raw_ptr_b);
 
-    // Class2 obj_2_3;
-    // std::cout << "&obj_2_3.ds_1: " << &obj_2_3.ds_1 << std::endl;
-    // std::cout << "&obj_2_3.ds_2: " << &obj_2_3.ds_2 << std::endl;
-    // std::cout << "&obj_2_3.ds_3: " << &obj_2_3.ds_3 << std::endl;
+    std::cout << "Value of a: " << *ptr_a << std::endl;
+    std::cout << "Value of b: " << *ptr_b << std::endl;
 
-    Class1 obj_1_1;
-    std::cout << "&obj_1_1.de_1.ds: " << &obj_1_1.de_1.data_store << std::endl;
-    std::cout << "&obj_1_1.de_2.ds: " << &obj_1_1.de_2.data_store << std::endl;
-    std::cout << "&obj_1_1.de_3.ds: " << &obj_1_1.de_3.data_store << std::endl;
+    std::cout << "\nIterating through nested map:\n";
+    for (const auto &category : m_data_element_register)
+    {
+        std::cout << "Key: " << category.first << "\n";
 
-    Class1 obj_1_2;
-    std::cout << "&obj_1_2.de_1.ds: " << &obj_1_2.de_1.data_store << std::endl;
-    std::cout << "&obj_1_2.de_2.ds: " << &obj_1_2.de_2.data_store << std::endl;
-    std::cout << "&obj_1_2.de_3.ds: " << &obj_1_2.de_3.data_store << std::endl;
-
-    Class1 obj_1_3;
-    std::cout << "&obj_1_3.de_1.ds: " << &obj_1_3.de_1.data_store << std::endl;
-    std::cout << "&obj_1_3.de_2.ds: " << &obj_1_3.de_2.data_store << std::endl;
-    std::cout << "&obj_1_3.de_3.ds: " << &obj_1_3.de_3.data_store << std::endl;
-
-    Class2 obj_2_1;
-    std::cout << "&obj_2_1.de_1.ds: " << &obj_2_1.de_1.data_store << std::endl;
-    std::cout << "&obj_2_1.de_2.ds: " << &obj_2_1.de_2.data_store << std::endl;
-    std::cout << "&obj_2_1.de_3.ds: " << &obj_2_1.de_3.data_store << std::endl;
-
-    Class2 obj_2_2;
-    std::cout << "&obj_2_2.de_1.ds: " << &obj_2_2.de_1.data_store << std::endl;
-    std::cout << "&obj_2_2.de_2.ds: " << &obj_2_2.de_2.data_store << std::endl;
-    std::cout << "&obj_2_2.de_3.ds: " << &obj_2_2.de_3.data_store << std::endl;
-
-    Class2 obj_2_3;
-    std::cout << "&obj_2_3.de_1.ds: " << &obj_2_3.de_1.data_store << std::endl;
-    std::cout << "&obj_2_3.de_2.ds: " << &obj_2_3.de_2.data_store << std::endl;
-    std::cout << "&obj_2_3.de_3.ds: " << &obj_2_3.de_3.data_store << std::endl;
+        for (const auto &item : category.second)
+        {
+            std::cout << "  Key: " << item.first << ", stored pointer: " << item.second << "\n";
+        }
+    }
 
     return 0;
 }
