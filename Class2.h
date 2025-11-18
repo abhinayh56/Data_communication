@@ -20,7 +20,7 @@ public:
     {
     }
 
-    Data_element<uint32_t> de_1;
-    Data_element<uint32_t> de_2;
-    Data_element<uint32_t> de_3;
+    Data_element<std::string> de_1;
+    Data_element<uint8_t> de_2;
+    Data_element<long long> de_3;
 };

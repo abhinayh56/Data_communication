@@ -21,6 +21,6 @@ public:
     }
 
     Data_element<uint32_t> de_1;
-    Data_element<uint32_t> de_2;
-    Data_element<uint32_t> de_3;
+    Data_element<uint64_t> de_2;
+    Data_element<int8_t> de_3;
 };
