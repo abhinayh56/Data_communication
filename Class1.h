@@ -20,7 +20,9 @@ public:
 
     void fun_temp()
     {
-        de_1.register_key_path("KEY_11", "PATH_11");
+        // de_1.register_key_path("KEY_11", "PATH_11");
+        Xml_object xml_obj("node_name_1");
+        de_1.register_key_path(xml_obj);
     }
 
     Data_element<uint32_t> de_1;
