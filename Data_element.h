@@ -13,9 +13,12 @@ public:
     Data_element()
     {
     }
-
-    Data_element(std::string key, std::string path, T data) : key(key), path(path), data(data)
+    
+    Data_element(std::string key, std::string path, T data)
     {
+        this->key = key;
+        this->path = path;
+        this->data = data;
     }
 
     ~Data_element()
@@ -25,19 +28,19 @@ public:
     bool register_data(uint64_t memory_location)
     {
         this->memory_location = memory_location;
-        std::cout << "Registering data element with key: " << this->key << " and path: " << this->path << std::endl;
+        // std::cout << "Registering data element with key: " << this->key << " and path: " << this->path << std::endl;
         return true;
     }
 
     bool read_data()
     {
-        std::cout << "Reading data element with key: " << this->key << " and path: " << this->path << std::endl;
+        // std::cout << "Reading data element with key: " << this->key << " and path: " << this->path << std::endl;
         return true;
     }
 
     bool write_data()
     {
-        std::cout << "Writing data element with key: " << this->key << " and path: " << this->path << std::endl;
+        // std::cout << "Writing data element with key: " << this->key << " and path: " << this->path << std::endl;
         return true;
     }
 
