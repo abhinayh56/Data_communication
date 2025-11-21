@@ -25,9 +25,8 @@ public:
     {
     }
 
-    bool register_data(uint64_t memory_location)
+    bool register_data()
     {
-        this->memory_location = memory_location;
         // std::cout << "Registering data element with key: " << this->key << " and path: " << this->path << std::endl;
         return true;
     }
@@ -56,8 +55,6 @@ private:
     uint8_t index_lock = 0;
     uint8_t index_data = 0;
     bool is_available = false;
-
-    uint64_t memory_location = 0;
 
     Data_store &data_store = Data_store::getInstance();
 };
