@@ -32,13 +32,13 @@ public:
         return true;
     }
 
-    bool read_data()
+    bool subscribe()
     {
         // std::cout << "Reading data element with key: " << this->key << " and path: " << this->path << std::endl;
         return true;
     }
 
-    bool write_data()
+    bool publish()
     {
         // std::cout << "Writing data element with key: " << this->key << " and path: " << this->path << std::endl;
         return true;
