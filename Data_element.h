@@ -28,6 +28,8 @@ public:
     {
         this->key = key;
         this->path = path;
+
+        return true;
     }
 
     bool publish(T data)
