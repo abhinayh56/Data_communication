@@ -24,6 +24,12 @@ public:
     {
     }
 
+    bool register_key_path(std::string key, std::string path)
+    {
+        this->key = key;
+        this->path = path;
+    }
+
     bool publish(T data)
     {
         // std::cout << "Registering data element with key: " << this->key << " and path: " << this->path << " publish" << std::endl;
@@ -56,7 +62,6 @@ public:
 private:
     std::string key = "";
     std::string path = "";
-    // T data;
     uint8_t index_lock = 0;
     uint8_t index_data = 0;
     bool is_available = false;
