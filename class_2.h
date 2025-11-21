@@ -8,6 +8,7 @@ class Class_2
 {
 public:
     Class_2() : member1(4,"example")
+    // Class_2() : member1()
     {
         std::cout << "Default constructor called Class_2" << std::endl;
     }
