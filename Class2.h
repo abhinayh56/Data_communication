@@ -8,9 +8,9 @@
 class Class2
 {
 public:
-    Class2() : de_1("KEY_21", "PATH_21", "0"),
-               de_2("KEY_22", "PATH_22", 0),
-               de_3("KEY_23", "PATH_23", 0)
+    Class2() : de_1("KEY_21", "PATH_21"),
+               de_2("KEY_22", "PATH_22"),
+               de_3("KEY_23", "PATH_23")
     {
     }
 

@@ -27,9 +27,9 @@ int main()
     std::cout << "&o2_2.de_2.get_data_store(): " << &o2_2.de_2.get_data_store() << std::endl;
     std::cout << "&o2_2.de_3.get_data_store(): " << &o2_2.de_3.get_data_store() << std::endl;
 
-    Data_element<uint32_t> de_n1{"KEY_n1", "PATH_n1", 0};
-    Data_element<uint32_t> de_n2("KEY_n2", "PATH_n2", 0);
-    Data_element<uint32_t> de_1212("KEY_11", "PATH_11", 0);
+    Data_element<uint32_t> de_n1{"KEY_n1", "PATH_n1"};
+    Data_element<uint32_t> de_n2("KEY_n2", "PATH_n2");
+    Data_element<uint32_t> de_1212("KEY_11", "PATH_11");
 
     std::cout << "&de_n1.get_data_store(): " << &de_n1.get_data_store() << std::endl;
     std::cout << "&de_n2.get_data_store(): " << &de_n2.get_data_store() << std::endl;

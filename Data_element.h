@@ -14,11 +14,10 @@ public:
     {
     }
 
-    Data_element(std::string key, std::string path, T data)
+    Data_element(std::string key, std::string path)
     {
         this->key = key;
         this->path = path;
-        // this->data = data;
     }
 
     ~Data_element()
