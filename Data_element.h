@@ -13,19 +13,19 @@ public:
     Data_element()
     {
     }
-    
+
     Data_element(std::string key, std::string path, T data)
     {
         this->key = key;
         this->path = path;
-        this->data = data;
+        // this->data = data;
     }
 
     ~Data_element()
     {
     }
 
-    bool publish()
+    bool publish(T data)
     {
         // std::cout << "Registering data element with key: " << this->key << " and path: " << this->path << " publish" << std::endl;
         return true;
@@ -37,13 +37,13 @@ public:
         return true;
     }
 
-    bool set()
+    bool set(T &data)
     {
         // std::cout << "Writing value of data element with key: " << this->key << " and path: " << this->path << std::endl;
         return true;
     }
 
-    bool get()
+    bool get(T &data)
     {
         // std::cout << "Reading value of data element with key: " << this->key << " and path: " << this->path << std::endl;
         return true;
@@ -57,7 +57,7 @@ public:
 private:
     std::string key = "";
     std::string path = "";
-    T data;
+    // T data;
     uint8_t index_lock = 0;
     uint8_t index_data = 0;
     bool is_available = false;
