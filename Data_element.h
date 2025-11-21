@@ -25,21 +25,27 @@ public:
     {
     }
 
-    bool register_data()
+    bool publish()
     {
-        // std::cout << "Registering data element with key: " << this->key << " and path: " << this->path << std::endl;
+        // std::cout << "Registering data element with key: " << this->key << " and path: " << this->path << " publish" << std::endl;
         return true;
     }
 
     bool subscribe()
     {
-        // std::cout << "Reading data element with key: " << this->key << " and path: " << this->path << std::endl;
+        // std::cout << "Registering data element with key: " << this->key << " and path: " << this->path << " subscribe" << std::endl;
         return true;
     }
 
-    bool publish()
+    bool set()
     {
-        // std::cout << "Writing data element with key: " << this->key << " and path: " << this->path << std::endl;
+        // std::cout << "Writing value of data element with key: " << this->key << " and path: " << this->path << std::endl;
+        return true;
+    }
+
+    bool get()
+    {
+        // std::cout << "Reading value of data element with key: " << this->key << " and path: " << this->path << std::endl;
         return true;
     }
 
