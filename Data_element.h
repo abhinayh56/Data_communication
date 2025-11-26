@@ -56,7 +56,6 @@ public:
 private:
     std::string key = "";
     std::string path = "";
-    // T data;
     uint8_t index_lock = 0;
     uint8_t index_data = 0;
     bool is_available = false;
