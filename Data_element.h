@@ -66,7 +66,7 @@ public:
         return true;
     }
 
-    bool get(T &data)
+    bool get(const T &data)
     {
         // std::cout << "Reading value of data element with key: " << this->key << " and path: " << this->path << std::endl;
         return true;
