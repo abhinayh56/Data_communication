@@ -37,6 +37,8 @@ public:
         this->key = key;
         this->path = path;
 
+        data_store.register_data_element();
+
         return true;
     }
 
