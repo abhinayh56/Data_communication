@@ -60,13 +60,13 @@ public:
         return true;
     }
 
-    bool set(T &data)
+    bool set(const T &data)
     {
         // std::cout << "Writing value of data element with key: " << this->key << " and path: " << this->path << std::endl;
         return true;
     }
 
-    bool get(const T &data)
+    bool get(T &data)
     {
         // std::cout << "Reading value of data element with key: " << this->key << " and path: " << this->path << std::endl;
         return true;
