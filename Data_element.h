@@ -37,15 +37,15 @@ public:
         this->key = key;
         this->path = path;
 
-        data_store.register_data_element();
+        // data_store.register_data_element();
 
         return true;
     }
 
     bool register_key_path(Xml_object &xml_obj)
     {
-        this->key = xml_obj->key;
-        this->path = xml_obj->path;
+        // this->key = xml_obj->key;
+        // this->path = xml_obj->path;
 
         return true;
     }
