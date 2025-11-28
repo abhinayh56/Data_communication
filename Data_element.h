@@ -5,6 +5,7 @@
 #include <iostream>
 #include <stdint.h>
 #include "Data_store.h"
+#include "Data_element_base.h"
 
 class Xml_object
 {
@@ -15,7 +16,7 @@ public:
 };
 
 template <typename T>
-class Data_element
+class Data_element : public Data_element_base
 {
 public:
     Data_element()
@@ -32,22 +33,25 @@ public:
     {
     }
 
-    bool register_key_path(std::string key, std::string path)
-    {
-        this->key = key;
-        this->path = path;
-
-        // data_store.register_data_element();
-
-        return true;
-    }
-
     bool register_key_path(Xml_object &xml_obj)
     {
         // this->key = xml_obj->key;
         // this->path = xml_obj->path;
 
         return true;
+    }
+
+    void register_key_path(std::string key, std::string path) override
+    {
+        this->key = key;
+        this->path = path;
+
+        // data_store.register_data_element();
+    }
+
+    void display_info() override
+    {
+        std::cout << "Data_element Info - Key: " << this->key << ", Path: " << this->path << std::endl;
     }
 
     bool publish(T data)
