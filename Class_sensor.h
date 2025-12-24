@@ -26,13 +26,13 @@ public:
         Data_element<uint64_t> de_2{"sensor2", "/path/to/sensor2"};
         Data_element<int8_t> de_3{"sensor3", "/path/to/sensor3"};
 
-        std::cout << data_elements.size() << " data elements registered:" << std::endl;
+        std::cout << data_elements.size() << " data elements registered" << std::endl;
         data_elements.push_back(&de_1);
-        std::cout << data_elements.size() << " data elements registered:" << std::endl;
+        std::cout << data_elements.size() << " data elements registered" << std::endl;
         data_elements.push_back(&de_2);
-        std::cout << data_elements.size() << " data elements registered:" << std::endl;
+        std::cout << data_elements.size() << " data elements registered" << std::endl;
         data_elements.push_back(&de_3);
-        std::cout << data_elements.size() << " data elements registered:" << std::endl;
+        std::cout << data_elements.size() << " data elements registered" << std::endl;
         std::cout << "---" << std::endl;
     }
 
@@ -43,7 +43,7 @@ public:
     void disp_data_elements()
     {
         std::cout << "Class_sensor::disp_data_elements()" << std::endl;
-        std::cout << data_elements.size() << " data elements registered:" << std::endl;
+        std::cout << data_elements.size() << " data elements registered" << std::endl;
 
         for(const auto& de : data_elements)
         {

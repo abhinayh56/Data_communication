@@ -7,14 +7,6 @@
 #include "Data_store.h"
 #include "Data_element_base.h"
 
-class Xml_object
-{
-public:
-    Xml_object(std::string s)
-    {
-    }
-};
-
 template <typename T>
 class Data_element : public Data_element_base
 {
@@ -31,14 +23,6 @@ public:
 
     ~Data_element()
     {
-    }
-
-    bool register_key_path(Xml_object &xml_obj)
-    {
-        // this->key = xml_obj->key;
-        // this->path = xml_obj->path;
-
-        return true;
     }
 
     void register_key_path(std::string key, std::string path) override
